@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-06-03T03:32:36.180Z</updated>
+  <updated>2020-06-04T10:06:49.259Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,25 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Windbg</title>
-    <link href="http://yoursite.com/2020/06/03/Windbg/"/>
-    <id>http://yoursite.com/2020/06/03/Windbg/</id>
+    <title>Windbg常用命令</title>
+    <link href="http://yoursite.com/2020/06/03/Windbg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2020/06/03/Windbg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2020-06-03T03:30:47.000Z</published>
-    <updated>2020-06-03T03:32:36.180Z</updated>
+    <updated>2020-06-04T10:06:49.259Z</updated>
     
-    <content type="html"><![CDATA[<p>待更新。。。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Windbg简介"><a href="#Windbg简介" class="headerlink" title="Windbg简介"></a>Windbg简介</h1><p>Windbg是Windows平台下的用户态和内核态的调试工具。Windbg不仅可以调试应用程序，还可以进行Kernel Debug，结合Microsoft的Symbol Server，可以获取系统符号文件，便于应用程序和内核的调试。</p><h1 id="Windbg常用命令"><a href="#Windbg常用命令" class="headerlink" title="Windbg常用命令"></a>Windbg常用命令</h1><p>Windbg命令分为标准命令、元命令和扩展命令。</p><ul><li>标准命令：提供最基本的调试功能，不区分大小写。 如：bp、g、dt等等</li><li>元命令：提供标准命令没有的功能，以”.”开头。 如：.sympath、.reload等等</li><li>扩展命令：用于扩展某一方面的调试功能，以”!”开头。 如：!analyze等等</li></ul><h2 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h2><ul><li>? ：显示标准命令</li><li>.help ：显示元命令</li><li>.hh ：显示帮助文件</li></ul><h2 id="调试命令"><a href="#调试命令" class="headerlink" title="调试命令"></a>调试命令</h2><ul><li>.attach [PID] ：附加到指定PID的进程上</li><li>.detach ：分离调试</li><li>.kill ：强制结束当前调试</li><li>q ：结束调试会话，回到基础工作空间，同时结束调试进程</li><li>qd ：结束调试会话，回到基础工作空间，但不结束调试进程</li><li>.restart ： 重启并调试</li></ul><h2 id="查看信息命令"><a href="#查看信息命令" class="headerlink" title="查看信息命令"></a>查看信息命令</h2><ul><li>version ：显示调试器版本信息和已加载的调试器扩展</li><li>vertarget ：显示目标机器的版本信息</li><li>CTRL+ALT+V ：打开/关闭Verbose（详细输出）模式</li><li>.cls ：清空屏幕</li><li>.lastevent ：显示最新的异常信息或事件信息</li><li>.time ：显示系统记录的各种时间</li><li>.echo “String” ：输出字符串</li></ul><h2 id="符号加载命令"><a href="#符号加载命令" class="headerlink" title="符号加载命令"></a>符号加载命令</h2><ul><li>ld [Module Name]：加载指定模块的符号</li><li>ln [address] :列出最近的符号</li><li>!sym ：获取符号加载状态</li><li>.sympath [symbol path]：显示[/设置]符号搜索路径</li><li>.symopt [+/- Flags] ：显示[/添加/移除]符号可选项</li><li>.symfix [DownstreamStore] ：设置符号库路径</li><li>x [Options] Module!symbol ：模式匹配符号信息<ul><li>x /t Module!symbol ：根据数据类型匹配</li><li>x /v Module!symbol ：显示详细信息</li><li>x /a Module!symbol ：按照地址排序</li><li>x /n Module!symbol ：按照名称排序</li><li>x /z Module!symbol ：按照大小排序</li><li>x *! Module!symbol ：列出所有模块</li><li>x ntdll!* ：列出 ntdll模块</li></ul></li><li>.reload ：重新加载符号信息</li></ul><h2 id="模块加载命令"><a href="#模块加载命令" class="headerlink" title="模块加载命令"></a>模块加载命令</h2><ul><li>lm ：显示已加载和未加载的模块信息</li><li>!dlls ：列出所有加载的模块和加载数量</li><li>!lmi [Module]：显示模块的详细信息</li></ul><h2 id="异常分析命令"><a href="#异常分析命令" class="headerlink" title="异常分析命令"></a>异常分析命令</h2><ul><li>!analyze ：显示当前异常的详细信息</li></ul><h2 id="进程信息命令"><a href="#进程信息命令" class="headerlink" title="进程信息命令"></a>进程信息命令</h2><ul><li>.tlist ：显示当前所有进程</li><li>!dml_proc ：通过DML方式显示当前进程的信息</li></ul><h2 id="线程信息命令"><a href="#线程信息命令" class="headerlink" title="线程信息命令"></a>线程信息命令</h2><ul><li>~ ：显示线程</li><li>~* ：显示所有线程</li><li>~. ：显示当前线程</li><li>!teb ：显示线程环境信息</li><li>!tls -1 ：显示当前线程所有的slot信息</li><li>!tls Slotdx ：显示指定的slot信息</li><li>.ttime ：显示线程时间信息</li><li>!runaway [0 | 1 | 2] ：显示每个线程消耗的时间[0:用户态时间 | 1：内核态时间 | 2：自线程创建起的时间间隔]</li><li>!gle ： 显示当前线程的最后错误</li></ul><h2 id="堆栈信息命令"><a href="#堆栈信息命令" class="headerlink" title="堆栈信息命令"></a>堆栈信息命令</h2><ul><li>k :显示当前调用堆栈</li><li>kd [WordCnt] ：显示原始栈数据和可能的符号信息</li><li>kn ：调用栈包含帧号</li><li>kf ：临近帧的距离</li><li>kL ：忽略源代码</li><li>kb ：最开始的 3 参数</li><li>kp ：所有的参数，包括参数类型、名称和值</li><li>kP ：所有的参数</li><li>kv ：FPO信息</li><li>kM ：使用DML格式显示堆栈信息</li><li>.kfremaes ：设置栈长度，默认20（0x14）</li><li>.frame ：显示当前帧</li><li>!uniqstack ：显示所有线程的栈信息</li><li>!findstack ：查找包含符号或模块的栈</li></ul><h2 id="断点信息命令"><a href="#断点信息命令" class="headerlink" title="断点信息命令"></a>断点信息命令</h2><ul><li>bl : 显示所有断点</li><li>bc * ：清除所有断点</li><li>be * ：启用所有断点</li><li>bp [address] ：在address处下断点</li><li>bp main ：在main函数下断点</li><li>bp @$exentry ： 在进程的入口下断点</li><li>bp MyDll+0x1010 ：在模块MyDll.dll偏移0x1010处下断点</li><li>bp `ConsoleTest.cpp:66` ：在ConsoleTest.cpp的66行处下断点</li><li>bp CSecondLoader::CSecondLoader ：在CSecondLoader的构造函数处下断点</li><li>bp TestCommon! CTest::test ：在TestCommon.dll的Test.cpp文件的CTest::test()函数起始处下断点</li></ul><h2 id="寄存器命令"><a href="#寄存器命令" class="headerlink" title="寄存器命令"></a>寄存器命令</h2><ul><li>r ：显示所有寄存器信息</li></ul><h2 id="查看变量命令"><a href="#查看变量命令" class="headerlink" title="查看变量命令"></a>查看变量命令</h2><ul><li>dt n ：查看局部变量n的类型与值</li><li>dv m ：查看函数变量m的值</li><li>dt ntdll!* ：查看ntdll里的所有类型信息</li></ul><h2 id="查看汇编命令"><a href="#查看汇编命令" class="headerlink" title="查看汇编命令"></a>查看汇编命令</h2><ul><li>u . ：反汇编当前eip寄存器地址的后8条指令</li><li>u $eip ：反汇编当前eip寄存器地址的后8条指令</li><li>ub . ：反汇编当前ip寄存器地址的前8条指令</li><li>ub $eip ：反汇编当前eip寄存器地址的前8条指令</li><li>u main+0x29 L30 ：反汇编main+0x29地址的后30条指令</li><li>u ：反编译下8条指令</li><li>uf CTest::add ：反汇编CTest类的add函数</li><li>uf /c main ：反汇编main函数，通过/c可以查看main函数中的函数调用(call)都有哪些</li><li>ub 000c123d L20 ：查看地址为000c123d指令前的20条指令内容</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;待更新。。。&lt;/p&gt;
-
+        &lt;h1 id=&quot;Windbg简介&quot;&gt;&lt;a href=&quot;#Windbg简介&quot; class=&quot;headerlink&quot; title=&quot;Windbg简介&quot;&gt;&lt;/a&gt;Windbg简介&lt;/h1&gt;&lt;p&gt;Windbg是Windows平台下的用户态和内核态的调试工具。Windbg不仅可以调试应用程
       
     
     </summary>
     
     
+    
+      <category term="Pwn" scheme="http://yoursite.com/tags/Pwn/"/>
     
   </entry>
   
